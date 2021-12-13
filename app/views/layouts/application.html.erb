@@ -15,10 +15,10 @@
       <%= link_to 'Home', users_index_path(current_user.id) %>
       </li>
       <li>
-      <%= link_to 'Users', users_path%>
+      <%= link_to 'Users', user_registration_path(current_user.id)  %>
       </li>
       <li>
-      BOOKS
+      <%= link_to 'Book', book_path(current_user.id)%>
       </li>
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

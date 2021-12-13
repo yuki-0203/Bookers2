@@ -21,23 +21,30 @@
 </div>
 
 <div class="New book">
-  <h2>User info</h2>
-  <label for="book_title">Title</label>
-  <label for="book_opinion">Opinion</label>
-  <p>createbook</p>
+  <h2>New Book</h2>
+  <%= form_with model: @book, local:true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+  <% end %>
 </div>
 
 <div class="Users">
-  <h2>Users</h2>
+  <h2>Bookdetail</h2>
   <table>
-    <thead>
-      <tr>
-         <th>title</th>
-       <th>opinion</th>
-       <th colspan="3"></th>
-    </thead>
     <tbody>
-      
+      <tr>
+         <td>
+           imege
+           <br>
+           name
+         </td>
+       <td>titke</td>
+       <td>opinion</td>
+       <td colspan="3"></td>
+      </tr>
     </tbody>
   </table>
   

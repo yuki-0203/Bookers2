@@ -8,4 +8,6 @@ class User < ApplicationRecord
   
   validates :name, presence: true 
   validates :profile, length: { maximum: 200 } 
+  
+  has_many :user_id, dependent: :destroy
 end
