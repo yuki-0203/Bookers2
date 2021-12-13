@@ -5,6 +5,7 @@ class UsersController < ApplicationController
  end
  
   def show
+    @users = User.all
     @user = User.find(params[:id])
   end
   
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     @user.update(user_params)
     redirect_to users_index_path(@user.id)
   end

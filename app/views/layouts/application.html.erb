@@ -11,12 +11,17 @@
 
   <body>
     <% if user_signed_in? %>
-     
+      <li>
+      <%= link_to 'Home', users_index_path(current_user.id) %>
+      </li>
+      <li>
+      <%= link_to 'Users', users_path%>
+      </li>
+      <li>
+      BOOKS
+      </li>
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-       <li>
-      <%= link_to 'マイページ', users_index_path(current_user.id) %>
       </li>
     <% else %>
       <li>
@@ -28,4 +33,8 @@
     <% end %>
     <%= yield %>
   </body>
+  
+  <footer>
+    <p>Copyright Infratop.inc</p>
+  </footer>
 </html>

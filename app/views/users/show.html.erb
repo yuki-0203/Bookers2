@@ -1,8 +1,45 @@
-<h1>about me</h1>
+<div class="Userinfo">
+  <h2>User info</h2>
+  
+  <div class="Userimag">
+    <%= attachment_image_tag @user, :image, format: 'jpeg', size: '100x100' %>
+  </div>
+  
+  <table>
+    <tbody>
+      <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= @user.profile %></th>
+      </tr>
+    </tbody>
+  </table>
+  <p><%=link_to'編集', edit_user_registration_path(current_user.id) %></p>
+</div>
 
-<h3>ユーザー名</h3>
-<%= @user.name %>
-<h3>メールアドレス</h3>
-<%= @user.email %>
-<h3>プロフィール</h3>
-<%= @user.profile%>
+<div class="New book">
+  <h2>User info</h2>
+  <label for="book_title">Title</label>
+  <label for="book_opinion">Opinion</label>
+  <p>createbook</p>
+</div>
+
+<div class="Users">
+  <h2>Users</h2>
+  <table>
+    <thead>
+      <tr>
+         <th>title</th>
+       <th>opinion</th>
+       <th colspan="3"></th>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+  
+  
+</div>
