@@ -15,7 +15,7 @@
 <% end %>
 
 <div>
-  <%= link_to((attachment_image_tag @book_id.user, :image, format: 'jpeg', size: '50x50'),"/users/#{@book_id.user.id}") %>
+  <%= link_to((attachment_image_tag @book_id.user, :profile_image, format: 'jpeg', size: '50x50'),"/users/#{@book_id.user.id}") %>
   <p>title：<%= @book_id.title %></p>
   <p>orinion：<%= @book_id.body %></p>
     <% if @book_id.user == current_user %>

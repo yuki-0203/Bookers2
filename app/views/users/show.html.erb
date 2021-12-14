@@ -2,7 +2,7 @@
   <h2>User info</h2>
   
   <div class="Userimag">
-    <%= attachment_image_tag @user, :image, format: 'jpeg', size: '100x100' %>
+    <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: '100x100' %>
   </div>
   
   <table>
@@ -13,7 +13,7 @@
       </tr>
       <tr>
         <th>introduction</th>
-        <th><%= @user.profile %></th>
+        <th><%= @user.introduction %></th>
       </tr>
     </tbody>
   </table>
@@ -41,7 +41,7 @@
        <td>opinion</td>
        <% @books.each do |book| %>
      <div>
-     <%= link_to((attachment_image_tag book.user, :image, format: 'jpeg', size: '50x50'),"/users/#{book.user.id}") %>
+     <%= link_to((attachment_image_tag book.user,:profile_image, format: 'jpeg', size: '50x50'),"/users/#{book.user.id}") %>
     <p>title：<%= book.title %></p>
     <p>orinion：<%= book.body %></p>
    </div>
