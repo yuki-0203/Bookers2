@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+ <% end %>
+
 <div class="Userinfo">
   <h2>User info</h2>
   
@@ -21,10 +27,13 @@
 </div>
 
 <div class="New book">
-  <h2>User info</h2>
-  <label for="book_title">Title</label>
-  <label for="book_opinion">Opinion</label>
-  <p>createbook</p>
+  <%= form_with model: @book, local:true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+  <% end %>
 </div>
 
 <div class="Books">

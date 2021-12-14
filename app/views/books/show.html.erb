@@ -15,15 +15,15 @@
 <% end %>
 
 <div>
-  <%= link_to((attachment_image_tag @book_id.user, :profile_image, format: 'jpeg', size: '50x50'),"/users/#{@book_id.user.id}") %>
-  <p>title：<%= @book_id.title %></p>
-  <p>orinion：<%= @book_id.body %></p>
+ <tb><%= link_to((attachment_image_tag @book_id.user, :profile_image, format: 'jpeg', size: '50x50'),"/users/#{@book_id.user.id}") %>
+ <br><%= link_to(@user.name,user_path(@user.id)) %>
+ </tb>
+ 
+  <tb><%= link_to(@book_id.title,book_path(@book_id.id))%></tb>
+  <tb><%= @book_id.body %></tb>
     <% if @book_id.user == current_user %>
       <td><%= link_to "Edit", edit_book_path(@book_id) %></td>
       <td><%= link_to "Destroy", @book_id, method: :delete,data: { confirm: 'Are you sure?' }  %></td>
-    <% else %>
-      <td></td>
-      <td></td>
     <% end %>
   </tr>
   

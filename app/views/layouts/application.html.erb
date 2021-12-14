@@ -10,12 +10,13 @@
   </head>
 
   <body>
+    <h1>booker</h1>
     <% if user_signed_in? %>
       <li>
       <%= link_to 'Home', user_path(current_user.id) %>
       </li>
       <li>
-      <%= link_to 'Users', users_index_path %>
+      <%= link_to 'Users', users_path %>
       </li>
       <li>
       <%= link_to 'Book', books_path%>
@@ -25,11 +26,12 @@
       </li>
     <% else %>
       <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
         <%= link_to "Log in", new_user_session_path %>
       </li>
+      <li>
+        <%= link_to "Sign up", new_user_registration_path %>
+      </li>
+      
     <% end %>
     
     
