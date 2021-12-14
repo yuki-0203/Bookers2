@@ -2,12 +2,11 @@
 
 <%= form_with model:@user, local:true ,url:new_user_registration_path do |f| %>
 
-  <h4>Name</h4>
+  <p>Name</p>
  <%= f.text_field :name %>
- <h4>Introduction</h4>
- <%=f.text_area :introduction %>
- <h4>画像</h4>
+  <p>画像</p>
  <%= f.attachment_field :profile_image%>
- <p></p>
- <%= f.submit '投稿' %>
+ <p>Introduction</p>
+ <%=f.text_area :introduction %>
+ <%= f.submit 'Update User' %>
 <% end %>
