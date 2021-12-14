@@ -18,19 +18,21 @@
       <%= link_to 'Users', user_registration_path(current_user.id)  %>
       </li>
       <li>
-      <%= link_to 'Book', book_path(current_user.id)%>
+      <%= link_to 'Book', books_path%>
       </li>
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
         <%= link_to "新規登録", new_user_registration_path %>
       </li>
       <li>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "Log in", new_user_session_path %>
       </li>
     <% end %>
+    
+    
     <%= yield %>
   </body>
   

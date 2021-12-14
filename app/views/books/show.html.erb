@@ -1,3 +1,10 @@
+<% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+ <% end %>
+
+
 <h1>投稿フォーム</h1>
 <%= form_with model: @book, local:true do |f| %>
   <h4>Title</h4>
@@ -7,10 +14,17 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
-<% @books.each do |book| %>
 <div>
-  <%= link_to((attachment_image_tag book.user, :image, format: 'jpeg', size: '50x50'),"/users/#{book.user.id}") %>
-  <p>title：<%= book.title %></p>
-  <p>orinion：<%= book.title %></p>
+  <%= link_to((attachment_image_tag @book_id.user, :image, format: 'jpeg', size: '50x50'),"/users/#{@book_id.user.id}") %>
+  <p>title：<%= @book_id.title %></p>
+  <p>orinion：<%= @book_id.body %></p>
+    <% if @book_id.user == current_user %>
+      <td><%= link_to "Edit", edit_book_path(@book_id) %></td>
+      <td><%= link_to "Destroy", @book_id, method: :delete,data: { confirm: 'Are you sure?' }  %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
+  </tr>
+  
 </div>
-<% end %>

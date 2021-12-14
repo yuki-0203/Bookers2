@@ -2,11 +2,15 @@ class UsersController < ApplicationController
  def index
     @users = User.all
     @user = current_user
+    @book = Book.new
  end
  
   def show
     @users = User.all
     @user = User.find(params[:id])
+    @book = Book.new
+    @books = Book.where(user: @user)
+
   end
   
   def edit
@@ -21,6 +25,13 @@ class UsersController < ApplicationController
   
   def new
    @book = Book.new
+  end
+  
+  def create
+    @book = Book.new(book_params)
+    @book.user_id=current_user.id
+    @book.save
+    redirect_to books_path
   end
   
 private
