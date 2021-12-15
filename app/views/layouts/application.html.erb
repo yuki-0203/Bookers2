@@ -11,44 +11,71 @@
   </head>
 
   <body class="d-flex flex-column vh-100">
-    <header>
     <nav class="navbar navbar-expand navbar-light bg-info">
      <ul class="navbar-nav mr-auto">　
       <h1>bookers<i class="fas fa-book"></i></h1>
-      <% if user_signed_in? %>
+      
+    <% if user_signed_in? %>
     </ul>　
      <ul class="navbar-nav">
         <li　class="nav-item">
-        <i class="fas fa-igloo"></i>
-        <%= link_to 'Home', user_path(current_user.id) %>
+          <%= link_to user_path(current_user.id) do %>
+          <i class="fas fa-igloo">Home</i> 
+          <% end %>
         </li>
+  
         <li　class="nav-item">
-          <i class="fas fa-child"></i>
-        <%= link_to 'Users', users_path %>
+          <%= link_to users_path do %>
+           <i class="fas fa-child">Users</i> 
+          <% end %>
         </li>
-        <li　class="nav-item">
-          <i class="fas fa-book-open"></i>
-        <%= link_to 'Book', books_path%>
+    
+         <li　class="nav-item">
+          <%= link_to users_path do %>
+           <i class="fas fa-book-open">Books</i> 
+          <% end %>
         </li>
-        <li　class="nav-item">
-          <i class="fas fa-sign-out-alt"></i>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        
+         <li　class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete do %>
+           <i class="fas fa-sign-out-alt">Log out</i> 
+          <% end %>
         </li>
-        </ul>
+        
       <% else %>
-      <ul class="navbar-nav">
+      
         <li　class="nav-item">
-          <%= link_to "Log in", new_user_session_path %>
+          <%= link_to root_path do %>
+          <i class="fas fa-igloo">Home</i> 
+          <% end %>
         </li>
-        <li　class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path %>
+        
+         <li　class="nav-item">
+          <%= link_to home_about_path do %>
+          <i class="fas fa-igloo">about</i> 
+          <% end %>
         </li>
-         </ul>
-      <% end %>
+        
+          <li　class="nav-item">
+          <%= link_to new_user_session_path do %>
+          <i class="fas fa-igloo">Log in</i> 
+          <% end %>
+        </li>
+        
+          <li　class="nav-item">
+          <%= link_to new_user_registration_path do %>
+          <i class="fas fa-igloo">Sign up</i> 
+          <% end %>
+        </li>
+        
+        </ul>
+    <% end %>
+
+ 
     </ul>
   </nav>
   
-  </header>
+  
       <%= render 'layouts/flash_message' %>
     <%= yield %>
   </body>
@@ -59,3 +86,6 @@
     </div>
   </footer>
 </html>
+
+
+

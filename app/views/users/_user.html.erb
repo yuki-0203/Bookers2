@@ -17,7 +17,9 @@
       </tr>
     </tbody>
   </table>
-  <p><i class="fas fa-user-cog"></i><%=link_to'編集', edit_user_registration_path(current_user.id) %></p>
+    <%= link_to edit_user_registration_path(current_user.id), class: "btn btn-derk", method: :get do %>
+       <i class="fas fa-user-cog"></i>
+    <% end %>
 </div>
 
 <div class="col-md-5 col-sm-10 rounded px-0 my-5">
