@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!,except: [:top]
+  add_flash_types :notice,:error
   
   def after_sign_in_path_for(resource)
       mypage_path(resource)

@@ -18,9 +18,12 @@ class UsersController < ApplicationController
   
   def update
     @user = current_user
-    if @user.update(user_params)
-        flash[:notice] = "Book was successfully updated." 
-        redirect_to user_path(@user)
+    if @user == current_user
+      if @user.update(user_params)
+          redirect_to user_path(@user), notice: "User was successfully updated." 
+      else
+        render :edit
+      end
     end
   end
   
@@ -30,9 +33,13 @@ class UsersController < ApplicationController
   
   def create
     @book = Book.new(book_params)
+    @user = current_user
     @book.user_id=current_user.id
-    @book.save
-    redirect_to books_path
+    if @book.save
+        redirect_to books_path, notice: "Book was successfully  created." 
+    else
+        render :show
+    end
   end
   
 private
