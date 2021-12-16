@@ -1,0 +1,23 @@
+<div class="mx-auto" style="width: 300px;">
+    
+    <h2> User editing </h2>
+     <div class="alart">
+       <% if @user.errors.any? %>
+          <%= @user.errors.count %>件のエラーが発生しました
+          <% @user.errors.full_messages.each do |message| %>
+          <%= message %>
+          <% end %>
+      <% end %>
+    </div>
+    
+    <%= form_with model:@user, local:true ,url:new_user_registration_path do |f| %>
+    
+      <p>Name</p>
+     <%= f.text_field :name %>
+      <p>画像</p>
+     <%= f.attachment_field :profile_image%>
+     <p>Introduction</p>
+     <%=f.text_area :introduction %>
+     <%= f.submit 'Update User',class:"btn btn-success" %>
+    <% end %>
+</div>
