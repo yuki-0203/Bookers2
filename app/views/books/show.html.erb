@@ -1,5 +1,4 @@
 
- 
 <div class="container">  
 <div class="row">     
   <div class="col-lg-4">
@@ -12,7 +11,12 @@
         <table class="table table-striped">
           <tbody>
             <tr>
-              <td><%= link_to((attachment_image_tag @book_id.user, :profile_image, format: 'jpeg', size: '50x50'),"/users/#{@book_id.user.id}") %>
+              <td>
+                <td><% if @user.profile_image.present? %>
+                         <%= link_to((attachment_image_tag @book_id.user, :profile_image, format: 'jpeg', size: '50x50'),"/users/#{@book_id.user.id}") %>
+                        <% else %>
+                        <%= link_to((image_tag 'default.png', size: '50x50'),"/users/#{@book_id.user.id}") %>
+                        <% end %>
                  <br><%= link_to(@user.name,user_path(@user.id)) %>
               </td>
               <td><%= link_to(@book_id.title,book_path(@book_id.id))%></td>

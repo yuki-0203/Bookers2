@@ -101,7 +101,7 @@ ja:
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
       new:
         sign_up: アカウント登録
-      signed_up: アカウント登録が完了しました。
+      signed_up: Welcome! You have signed up successfully.
       signed_up_but_inactive: ログインするためには、アカウントを有効化してください。
       signed_up_but_locked: アカウントが凍結されているためログインできません。
       signed_up_but_unconfirmed: 本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。
@@ -111,9 +111,9 @@ ja:
     sessions:
       already_signed_out: 既にログアウト済みです。
       new:
-        sign_in: ログイン
-      signed_in: ログインしました。
-      signed_out: ログアウトしました。
+        sign_in: Welcome! You have signed up successfully.
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
     shared:
       links:
         back: 戻る
