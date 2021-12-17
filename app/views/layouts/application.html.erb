@@ -2,87 +2,79 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://kit.fontawesome.com/c3fbb4b704.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-     <div class="container">
-     <ul class="navbar-nav mr-auto">　
-      <div class="navbar-brand"><%= link_to 'Bookers',root_path %></div>
-      
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+                <div class="navbar-brand">
+                    <%= link_to 'Bookers',root_path %>
+                </div>
+          
     <div class="collapse navbar-collapse">
       <% if user_signed_in? %>
-      </ul>　
          <ul class="navbar-nav  ml-auto">
-              <%= link_to user_path(current_user.id) do %>
+            <li>
+            <%= link_to user_path(current_user.id) do %>
               <i class="fas fa-home">Home</i> 
               <% end %>
-  
-        <li　class="navbar-nav  ml-auto">
-          <%= link_to users_path do %>
-           <i class="fas fa-users">Users</i> 
-          <% end %>
-        </li>
-    
-         <li　class="navbar-nav  ml-auto">
-          <%= link_to books_path do %>
-           <i class="fas fa-book-open">Books</i> 
-          <% end %>
-        </li>
+            </li>
+            <li>
+              <%= link_to users_path do %>
+               <i class="fas fa-users">Users</i> 
+              <% end %>
+            </li>
+             <li>
+              <%= link_to books_path do %>
+               <i class="fas fa-book-open">Books</i> 
+              <% end %>
+            </li>
+             <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+               <i class="fas fa-sign-out-alt">Log out</i> 
+              <% end %>
+            </li>
+ <% else %>
+            <li>
+              <%= link_to root_path do %>
+              <i class="fas fa-home">Home</i> 
+              <% end %>
+            </li>
         
-         <li　class="navbar-nav  ml-auto">
-          <%= link_to destroy_user_session_path, method: :delete do %>
-           <i class="fas fa-sign-out-alt">Log out</i> 
-          <% end %>
-        </li>
+             <li>
+              <%= link_to home_about_path do %>
+              <i class="fas fa-link">About</i> 
+              <% end %>
+            </li>
         
-      <% else %>
-      
-        <li　class="navbar-nav  ml-auto">
-          <%= link_to root_path do %>
-          <i class="fas fa-home">Home</i> 
-          <% end %>
-        </li>
-        
-         <li　class="navbar-nav  ml-auto">
-          <%= link_to home_about_path do %>
-          <i class="fas fa-link">About</i> 
-          <% end %>
-        </li>
-        
-        
-          <li　class="navbar-nav  ml-auto">
-          <%= link_to new_user_registration_path do %>
-          <i class="fas fa-user-plus">Sign up</i> 
-          <% end %>
-        </li>
-        
-          <li　class="navbar-nav  ml-auto">
-          <%= link_to new_user_session_path do %>
-          <i class="fas fa-sign-in-alt">Log in</i> 
-          <% end %>
-        </li>
+            
+              <li>
+              <%= link_to new_user_registration_path do %>
+              <i class="fas fa-user-plus">Sign up</i> 
+              <% end %>
+              </li>
+                
+              <li>
+              <%= link_to new_user_session_path do %>
+              <i class="fas fa-sign-in-alt">Log in</i> 
+              <% end %>
+            </li>
         
         </ul>
     <% end %>
-
- 
-    </ul>
     </div>
-    </div>
-  </nav>
-  
-  
-  
+        </div>
+       </nav>
+    </header>
+    
       <%= render 'layouts/flash_message' %>
-      
-</div>
     <%= yield %>
   </body>
   
